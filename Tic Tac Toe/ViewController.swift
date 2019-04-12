@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label: UILabel!
     var activePlayer=1 //Cross
     var scoreXX = 0
      var scoreYY = 0
@@ -23,7 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreY: UILabel!
     @IBOutlet weak var scoreX: UILabel!
     
-    @IBOutlet weak var label: UILabel!
+    
 
     @IBOutlet weak var Llabel1: UILabel!
     
@@ -45,8 +48,9 @@ class ViewController: UIViewController {
             Llabel1.text="X"
         
         }}
+        
         for combination in winningCombination{
-          //  while(t<3){
+          
             if gameState[combination[0]] != 0 && gameState[combination[0]]==gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]{
                 gameIsActive = false
                 if gameState[combination[0]] == 1
@@ -55,7 +59,7 @@ class ViewController: UIViewController {
                     
                     label.text="les X ont gagné"
                     scoreXX += 1
-                   // t += 1
+             
                     scoreX.text=String(scoreXX)
                     for i in 1...9{
                         let button = view.viewWithTag(i) as! UIButton
@@ -65,7 +69,7 @@ class ViewController: UIViewController {
                     
                     label.text="les O ont gagné" 
                     scoreYY += 1
-                    //t += 1
+                   
                     scoreY.text=String(scoreYY)
                     for i in 1...9{
                         let button = view.viewWithTag(i) as! UIButton
@@ -75,7 +79,7 @@ class ViewController: UIViewController {
                 }
                 playAgainButton.isHidden = false
                 label.isHidden=false
-            //}
+      
             }}
         gameIsActive=false
         for i in gameState
@@ -89,8 +93,7 @@ class ViewController: UIViewController {
         if gameIsActive == false
         {
             label.text = "Egalité"
-            scoreXX = 0
-            scoreYY = 0
+      
             scoreY.text=String(scoreYY)
             scoreX.text=String(scoreXX)
             label.isHidden=false
@@ -106,9 +109,15 @@ class ViewController: UIViewController {
         val+=1
         if (val==3){
             createAlert(title: "FIN DE LA PARTIE ", message: "Vous voulez enregistrer votre score?")
+            playAgainButton.setTitle("Enregistrer", for: .normal)
+            
+            
+            
         }
-        playAgainButton.isHidden = true
-        label.isHidden=true
+        playAgainButton.isHidden = false
+        label.isHidden=false
+        scoreX.isHidden=false
+        scoreY.isHidden=false
         Llabel1.text = "X"
         for i in 1...9{
             let button = view.viewWithTag(i) as! UIButton
@@ -116,6 +125,8 @@ class ViewController: UIViewController {
             
         }
     }
+
+  
     func createAlert(title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle:UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title:"Yes", style: UIAlertActionStyle.default, handler:{
@@ -128,8 +139,33 @@ class ViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)    }
     
+    
+    @IBAction func enter(_ sender:AnyObject) {
+        if(scoreX.text != ""){
+            performSegue(withIdentifier: "segue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        let DestViewController = segue.destination as! SecondViewController
+        if(scoreXX>scoreYY){
+            DestViewController.labelText = scoreX.text!
+            DestViewController.labelText1 = label.text!
+        }
+        else{
+            DestViewController.labelText = scoreY.text!
+        }
+
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreX.text=String(scoreXX)
+        scoreY.text=String(scoreYY)
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -137,7 +173,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-

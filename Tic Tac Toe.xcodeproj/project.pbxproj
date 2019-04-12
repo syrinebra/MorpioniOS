@@ -15,6 +15,7 @@
 		EC0FA95C2255F56900885036 /* cercle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC0FA95A2255F56800885036 /* cercle.jpg */; };
 		EC0FA95D2255F56900885036 /* croix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC0FA95B2255F56900885036 /* croix.jpg */; };
 		EC0FA95F2255F6BE00885036 /* grille.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC0FA95E2255F6BE00885036 /* grille.jpg */; };
+		EC3E3291225DF8F30021B53D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3E3290225DF8F30021B53D /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EC0FA95A2255F56800885036 /* cercle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cercle.jpg; sourceTree = "<group>"; };
 		EC0FA95B2255F56900885036 /* croix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = croix.jpg; sourceTree = "<group>"; };
 		EC0FA95E2255F6BE00885036 /* grille.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grille.jpg; sourceTree = "<group>"; };
+		EC3E3290225DF8F30021B53D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				EC0FA9482255F43000885036 /* AppDelegate.swift */,
 				EC0FA94A2255F43000885036 /* ViewController.swift */,
+				EC3E3290225DF8F30021B53D /* SecondViewController.swift */,
 				EC0FA94C2255F43000885036 /* Main.storyboard */,
 				EC0FA94F2255F43000885036 /* Assets.xcassets */,
 				EC0FA9512255F43000885036 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3E3291225DF8F30021B53D /* SecondViewController.swift in Sources */,
 				EC0FA94B2255F43000885036 /* ViewController.swift in Sources */,
 				EC0FA9492255F43000885036 /* AppDelegate.swift in Sources */,
 			);
